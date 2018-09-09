@@ -35,3 +35,29 @@ export const getGETParam = (paramName) => {
     }
     return false;
 };
+
+export const measureValue = {
+    in: 'in',
+    cm: 'cm'
+}
+
+export const getMeasure = (target, value) => {
+    let changeMeasure = mmToIn
+    let currentValue = measureValue.in
+
+    switch(target){
+        case measureValue.cm:
+            changeMeasure = mmToCm
+            currentValue = measureValue.cm
+            break
+        case measureValue.in:
+            changeMeasure = mmToIn
+            currentValue = measureValue.in  
+            break
+        default: break    
+    }
+    return `${changeMeasure(value)} ${currentValue}`
+};
+
+
+

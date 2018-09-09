@@ -2,6 +2,7 @@
 import { SWITCH_ITEM, ADD_ITEM, REMOVE_ITEM } from '../../constants/actions';
 
 const getDefaultItem = () => [modes[defaultMode].items[0]];
+
 const initialState = {
     modes: modes,
     currentMode: defaultMode,

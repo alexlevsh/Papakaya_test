@@ -5,3 +5,17 @@ export function rotateProduct(product) {
         type: ROTATE_PRODUCT
     };
 }
+
+export function changeMeasure(type){
+    return {
+        type: CHANGE_MEASURE,
+        payload : type
+    };
+}
+
+export function localMeasure(type) {
+    return {
+        type: LOCAL_MEASURE,
+        payload: type
+    };
+}

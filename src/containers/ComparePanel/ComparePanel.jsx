@@ -4,6 +4,7 @@ import { calculations } from '../../core/ui/calculations';
 import { Header } from '../../components/Header/Header';
 import { CompareWithItem } from '../../components/ComparePanel/CompareWithItem';
 import './comparePanel.css';
+import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch'
 
 export class ComparePanel extends Component {
     constructor(props) {
@@ -34,6 +35,7 @@ export class ComparePanel extends Component {
             <div className="compare-panel">
                 <Header mode={this.props.currentMode} productName={this.props.product.name} currentItems={this.props.currentItems} />
                 <div className="compare-panel__body" ref={(body) => this.comparePanelBody = body}>
+                <ToggleSwitch></ToggleSwitch>
                     {
                         this.state.domReady &&
                         this.showCurrentMode(this.props.currentMode, this.props.product, this.props.currentItems[0])
