@@ -47,7 +47,7 @@ export class ComparePanel extends Component {
                 <ToggleSwitch measure = {this.props.measure} onChangeMeasure = {this.measureHandleChange}></ToggleSwitch>
                     {
                         this.state.domReady &&
-                        this.showCurrentMode(this.props.currentMode, this.props.product, this.props.currentItems[0])
+                        this.showCurrentMode(this.props.currentMode, this.props.product, this.props.currentItems[0], this.props.measure)
                     }
                 </div>
             </div>

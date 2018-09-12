@@ -1,5 +1,5 @@
 import React from 'react';
-import {mmToIn} from '../../core/utils';
+import {getMeasure} from '../../core/utils';
 import './itemBox.css';
 
 export const ItemBox = (props) => {
@@ -22,8 +22,8 @@ export const ItemBox = (props) => {
                 <div className="item-box__content-overlay">
                     <div className="content-overlay__title">
                         <span className="item-box__title">
-                            {props.item.itemBoxThumb.width && <span>W: {mmToIn(props.item.itemBoxThumb.width)} in</span>}&nbsp;
-                            {props.item.itemBoxThumb.height && <span>H: {mmToIn(props.item.itemBoxThumb.height)} in</span>}
+                            {props.item.itemBoxThumb.width && <span>W: {getMeasure(props.measure, props.item.itemBoxThumb.width)}</span>}&nbsp;
+                            {props.item.itemBoxThumb.height && <span>H: {getMeasure(props.measure, props.item.itemBoxThumb.height)}</span>}
                         </span>
                     </div>
                 </div>

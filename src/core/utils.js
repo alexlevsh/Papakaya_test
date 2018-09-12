@@ -41,11 +41,11 @@ export const measureValue = {
     cm: 'cm'
 }
 
-export const getMeasure = (target, value) => {
+export const getMeasure = (type, value) => {
     let changeMeasure = mmToIn
     let currentValue = measureValue.in
 
-    switch(target){
+    switch(type){
         case measureValue.cm:
             changeMeasure = mmToCm
             currentValue = measureValue.cm
