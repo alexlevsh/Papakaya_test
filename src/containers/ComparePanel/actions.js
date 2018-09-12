@@ -1,4 +1,4 @@
-import { ROTATE_PRODUCT } from '../../constants/actions';
+import { ROTATE_PRODUCT, CHANGE_MEASURE, LOCAL_MEASURE } from '../../constants/actions';
 
 export function rotateProduct(product) {
     return {

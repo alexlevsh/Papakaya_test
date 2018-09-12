@@ -5,6 +5,8 @@ import { Header } from '../../components/Header/Header';
 import { CompareWithItem } from '../../components/ComparePanel/CompareWithItem';
 import './comparePanel.css';
 import ToggleSwitch from '../../components/ToggleSwitch/ToggleSwitch'
+import * as compareActions from '../ComparePanel/actions'
+import { bindActionCreators } from 'redux';
 
 export class ComparePanel extends Component {
     constructor(props) {
@@ -27,7 +29,14 @@ export class ComparePanel extends Component {
                 item={item} 
                 calculations={ calculations(width, height) } 
                 bodySize = {{width, height}}
+                measure = {this.props.measure}
             />)
+    }
+
+        measureHandleChange = (value) => {
+        this.props.compareActions.changeMeasure(value)
+        this.props.compareActions.localMeasure()
+
     }
 
     render() {
@@ -35,7 +44,7 @@ export class ComparePanel extends Component {
             <div className="compare-panel">
                 <Header mode={this.props.currentMode} productName={this.props.product.name} currentItems={this.props.currentItems} />
                 <div className="compare-panel__body" ref={(body) => this.comparePanelBody = body}>
-                <ToggleSwitch></ToggleSwitch>
+                <ToggleSwitch measure = {this.props.measure} onChangeMeasure = {this.measureHandleChange}></ToggleSwitch>
                     {
                         this.state.domReady &&
                         this.showCurrentMode(this.props.currentMode, this.props.product, this.props.currentItems[0])
@@ -50,9 +59,16 @@ let mapStateToProps = (state) => {
     return {
         currentMode: state.ControlPanel.currentMode,
         currentItems: state.ControlPanel.currentItems,
-        product: state.ComparePanel.product
+        product: state.ComparePanel.product,
+        measure: state.ComparePanel.measure
     };
 };
 
+let mapDispatchToProps = (dispatch) => {
+    return{
+        compareActions: bindActionCreators(compareActions, dispatch)
+    }
+}
 
-export default connect(mapStateToProps)(ComparePanel);
+
+export default connect(mapStateToProps, mapDispatchToProps)(ComparePanel);
