@@ -9,7 +9,7 @@ class ToggleSwitch extends Component{
             <div className="wrapper">
                 <div className="switch">
                     <input
-                     type="checkbox"
+                     type="radio"
                      id="left" 
                      name="switch_left"
                      onChange = {this.handleChange}
@@ -18,7 +18,7 @@ class ToggleSwitch extends Component{
                      />
                         <label htmlFor="left" >in</label>
                     <input 
-                    type="checkbox"
+                    type="radio"
                     id="right"
                     name="switch_right"
                     onChange = {this.handleChange}

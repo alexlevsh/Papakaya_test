@@ -42,6 +42,7 @@
 }
 
 .item-box__content-overlay {
+    animation: slidefrom​Bottom​ToTop 0.3s ease;
 	display: none;
     position: absolute;
     top: 0;
@@ -50,7 +51,7 @@
     height: 100%;
     border-top: 6px solid #0e93dd;
     align-items: center;
-    text-align: center;
+    text-align: center
 }
 
 .item-box--active .item-box__content-overlay {
@@ -60,4 +61,13 @@
 .content-overlay__title {
     width: 100%;
     text-align: center;
+}
+
+@keyframes slidefrom​Bottom​ToTop {   
+  from {     
+    top: 128px;   
+  }   
+  to {
+    top: 0;
+   }
 }
