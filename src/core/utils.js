@@ -1,4 +1,6 @@
 // rounding
+import {LOCAL_STORAGE_KEY} from '../constants/localStorageKey';
+
 export const roundToNDigits = (x, n) => Math.round(x * Math.pow(10, n)) / Math.pow(10, n);
 export const roundTo2Digits = (x) => roundToNDigits(x, 2);
 
@@ -58,6 +60,14 @@ export const getMeasure = (type, value) => {
     }
     return `${changeMeasure(value)} ${currentValue}`
 };
+
+export const getDefaultMeasure = () => {
+    let measure = localStorage.getItem(LOCAL_STORAGE_KEY)
+    if(!measure && !(measure in measureValue)){
+        measure = measureValue.in
+    }
+    return measure
+}
 
 
 

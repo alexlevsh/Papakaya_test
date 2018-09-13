@@ -1,16 +1,10 @@
 /* global product - is it legal?*/
 
 import { CHANGE_MEASURE, LOCAL_MEASURE} from '../../constants/actions';
-import {measureValue}  from '../../core/utils'
+import {getDefaultMeasure}  from '../../core/utils'
 import {LOCAL_STORAGE_KEY} from '../../constants/localStorageKey'
 
-const getDefaultMeasure = () => {
-    let measure = localStorage.getItem(LOCAL_STORAGE_KEY)
-    if(!measure && !(measure in measureValue)){
-        measure = measureValue.in
-    }
-    return measure
-}
+
 
 const initialState = {
     product: product,
